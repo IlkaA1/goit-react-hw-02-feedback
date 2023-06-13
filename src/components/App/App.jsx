@@ -16,7 +16,7 @@ export class App extends Component {
   clickOnButton = evt => {
     let buttonId = evt.target.name;
 
-    return this.setState({ [buttonId]: (this.state[buttonId] += 1) });
+    return this.setState({ [buttonId]: this.state[buttonId] + 1 });
   };
 
   countTotalFeedback = () => {
