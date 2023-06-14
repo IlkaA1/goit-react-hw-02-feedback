@@ -13,10 +13,10 @@ export class App extends Component {
     bad: 0,
   };
 
-  clickOnButton = evt => {
-    let buttonId = evt.target.name;
-
-    return this.setState({ [buttonId]: this.state[buttonId] + 1 });
+  clickOnButton = btnName => {
+    this.setState(state => {
+      return { [btnName]: state[btnName] + 1 };
+    });
   };
 
   countTotalFeedback = () => {
@@ -40,7 +40,7 @@ export class App extends Component {
       <div className={css.container}>
         <Section title={'Please leave feedback'}>
           <Feedback
-            options={['good', 'neutral', 'bad']}
+            options={[...Object.keys(this.state)]}
             onLeaveFeedback={this.clickOnButton}
           />
         </Section>
